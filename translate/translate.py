@@ -258,7 +258,6 @@ class Translate(commands.Cog):
             em = discord.Embed(color=self.mod_color)
             em.set_author(name='Available Languages:', icon_url=ctx.message.author.avatar_url),
             em.description = f'```bf\n{available}```'
-            em.set_footer(text=duration, icon_url='https://i.imgur.com/yeHFKgl.png')
 
             if lang in conv:
                 t = f'{translate(text, lang)}'
@@ -266,7 +265,6 @@ class Translate(commands.Cog):
                 e.set_author(name=m, icon_url=ctx.message.author.avatar_url),
                 e.add_field(name='Original1', value=f'*```css\n{text}```*', inline=False)
                 e.add_field(name='Translation1', value=f'```css\n{t}```', inline=False)
-                e.set_footer(text=duration, icon_url='https://i.imgur.com/yeHFKgl.png')
                 try:
                     await ctx.message.add_reaction('\N{WHITE HEAVY CHECK MARK}')
                 except discord.Forbidden:  # FORBIDDEN (status code: 403): Missing Permissions
@@ -278,9 +276,8 @@ class Translate(commands.Cog):
                 tn = f'{translate(text, lang)}'
                 em = discord.Embed(color=self.user_color)
                 em.set_author(name=m, icon_url=ctx.message.author.avatar_url),
-                em.add_field(name='Original Message', value=f'*```bf\n{text}```*', inline=False)
+                em.add_field(name='Input', value=f'*```bf\n{text}```*', inline=False)
                 em.add_field(name=f'Translation to {language}', value=tn, inline=False)
-                em.set_footer(text=duration, icon_url='https://i.imgur.com/yeHFKgl.png')
                 try:
                     await ctx.message.add_reaction('\N{WHITE HEAVY CHECK MARK}')
                 except discord.Forbidden:  # FORBIDDEN (status code: 403): Missing Permissions
